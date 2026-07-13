@@ -1,0 +1,24 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "compaction": {
+    "tail_turns": 6,
+    "preserve_recent_tokens": 30000,
+    "reserved": 20000
+  },
+  "provider": {},
+  "plugin": [],
+  "agent": {
+    "build": {
+      "model": "opencode-go/deepseek-v4-pro"
+    },
+    "plan": {
+      "model": "opencode-go/kimi-k2.7-code"
+    },
+    "Explore": {
+      "model": "opencode-go/glm-5.2"
+    },
+    "Wiki": {
+      "disable": true
+    }
+  }
+}
