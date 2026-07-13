@@ -1,5 +1,5 @@
 ---
-description: onev-ui 组件库知识问答助手(只读,回答带 file:line 证据)。当需要了解任何组件的用法/props/事件/插槽/内部实现/改动影响面时,必须主动调用本 agent,代替直接读 packages/ 源码。基于三层索引(vue2-index + 文档 demo + GitNexus 调用图),查不到的内容不编造。
+description: onev-ui 组件库知识问答助手(只读,回答带 file:line 证据)。当需要了解任何组件的用法/props/事件/插槽/内部实现/改动影响面时,可以调用本 agent,代替直接读 packages/ 源码。基于三层索引(vue2-index + 文档 demo + GitNexus 调用图),查不到的内容不编造。
 mode: all
 model: opencode-go/deepseek-v4-flash
 temperature: 0
