@@ -25,6 +25,7 @@ permission:
     Coder: allow
     CodeReview: allow
     Rescue: allow
+    Wiki: allow
   lsp: allow
   skill: allow
   webfetch: allow
