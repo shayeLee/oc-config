@@ -15,7 +15,7 @@
       "model": "opencode-go/kimi-k2.7-code"
     },
     "Explore": {
-      "model": "opencode-go/glm-5.2"
+      "model": "opencode-go/deepseek-v4-flash"
     },
     "Wiki": {
       "disable": true
