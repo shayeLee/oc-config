@@ -15,7 +15,7 @@
       "model": "opencode-go/kimi-k2.7-code"
     },
     "general": {
-      "model": "openai/gpt-5.4-mini"
+      "model": "opencode-go/deepseek-v4-flash"
     },
     "Wiki": {
       "disable": true
