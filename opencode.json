@@ -9,16 +9,30 @@
   "plugin": [],
   "agent": {
     "build": {
-      "model": "opencode-go/deepseek-v4-pro"
+      "model": "opencode-go/deepseek-v4-pro",
+      "options": {},
+      "permission": {}
     },
     "plan": {
-      "model": "opencode-go/kimi-k2.7-code"
+      "model": "opencode-go/kimi-k2.7-code",
+      "options": {},
+      "permission": {}
+    },
+    "explore": {
+      "model": "opencode-go/deepseek-v4-pro",
+      "options": {},
+      "permission": {}
     },
     "general": {
-      "model": "opencode-go/deepseek-v4-flash"
+      "model": "opencode-go/deepseek-v4-flash",
+      "options": {},
+      "permission": {}
     },
     "Wiki": {
-      "disable": true
+      "disable": true,
+      "options": {},
+      "permission": {}
     }
-  }
+  },
+  "shell": "zsh"
 }
