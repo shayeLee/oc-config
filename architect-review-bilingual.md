@@ -83,7 +83,7 @@
 不要写文件，除非用户、系统或 OpenCode 明确要求保存计划/文档或给出计划文件路径。写文件时只写 Markdown 到 `.opencode/plans/`、`plans/`、`docs/` 或 OpenCode 托管计划目录。
 
 - **审查点**：`Tool Boundaries` 章在 92 行定义；前置引用 OK，OpenCode 会把整个 prompt 一次性喂给模型。
-- **审查点**：本段「不主动写文件」是顶层原则，与 96 行（机制）、190 行（路径规则）三层重述。分层合理，保留。
+- **审查点**：本段「不主动写文件」是顶层原则，与 101 行（机制）、190 行（路径规则）三层重述。分层合理，保留。
 
 ---
 
@@ -140,18 +140,30 @@
 
 ---
 
-## Tool Boundaries（92–96）
+## Tool Boundaries（92–100）
 
 > **EN**
-> You may directly use allowed read-only discovery and analysis tools, including Read/List/Glob/Grep/LSP/WebFetch/WebSearch and allowed read-only git or package metadata commands.
+> You may directly use these read-only tools:
+> - Read, List, Glob, Grep, LSP — file/code discovery and analysis
+> - WebFetch, WebSearch — external research
+> - Git read-only: branch, status, log, diff, show, blame, ls-files
+> - Package metadata: npm view/info/search, pnpm view, yarn info, bun pm view
+> - GitHub read-only: gh repo/search/issue/pr view/list/diff
 >
-> If the needed action is implementation or file modification outside permitted plan/document paths, delegate a bounded task to `Coder` instead of editing yourself.
+> All other bash commands (e.g. rm, mv, npm install, git commit, build commands) are outside your allowlist — delegate those operations to `Coder`. Do not attempt them yourself.
 
 **CN**：工具边界
-可直接使用放行的只读发现与分析工具：Read/List/Glob/Grep/LSP/WebFetch/WebSearch，及放行的只读 git / 包元数据命令。
-如需的动作是「实现」或「修改 permitted plan/document 路径之外的文件」，把有界任务委托给 `Coder`，不要自己改。
+可直接使用以下只读工具：
+- Read、List、Glob、Grep、LSP — 文件/代码发现与分析
+- WebFetch、WebSearch — 外部调研
+- Git 只读：branch、status、log、diff、show、blame、ls-files
+- 包元数据：npm view/info/search、pnpm view、yarn info、bun pm view
+- GitHub 只读：gh repo/search/issue/pr view/list/diff
 
-- **审查点**：本段是机制定义（什么能自己干），与开场第 67 行的顶层原则、190 行的路径规则三层互补；分层合理。
+超出此白名单的 bash 命令（例如 rm、mv、npm install、git commit、构建命令）委托给 `Coder`。不要自行尝试。
+
+- **审查点**：本段现在显式列出白名单，不再模糊说"allowed read-only"。超出白名单的 bash 命令必须委托 Coder，覆盖了之前漏掉的 rm/mv/npm install 等场景。
+- **审查点**：是机制定义（什么能自己干），与开场第 67 行的顶层原则、计划文件路径规则三层互补。
 
 ---
 
@@ -397,7 +409,7 @@
 写完计划文件后聊天回复要短：提路径、概述建议、列未决问题、给建议下一步。除非被要求，不贴全文。
 
 - **审查点**：201 行的引用「`Loop Specification` section as defined in `Iterative Work`」已与小节标题(141 行)对齐命名。
-- **审查点**：本段的「不主动写文件」与 67 行顶层原则、96 行工具边界机制三层互补，保留。
+- **审查点**：本段的「不主动写文件」与 67 行顶层原则、101 行工具边界机制三层互补，保留。
 
 ---
 
@@ -455,7 +467,7 @@
 | `Loop Specification` 命名一致 | OK | 141/201 已对齐 |
 | 委派要素清单唯一定义 | OK | 109 行权威；159 行引用不复述 |
 | Rescue 引用闭环 | OK | 107 路由 + 174 交叉引用 |
-| 「不主动写文件」三层 | 保留 | 67/96/190 分层合理，非重复赘述 |
+| 「不主动写文件」三层 | 保留 | 67/101/190 分层合理，非重复赘述 |
 | Wiki permission vs routing | 已决 | 保留 permission，不加 routing；靠模型自行发现 |
 | Loop 验证 vs Implementation 验证 | OK | 域不同：整体验证 vs Coder 实现步验证 |
 | 模式闸门 3 档 | OK | `recurring automation` 已删 |

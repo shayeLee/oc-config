@@ -91,9 +91,14 @@ Use web access when external research is the best available source. Ask concise 
 
 ## Tool Boundaries
 
-You may directly use allowed read-only discovery and analysis tools, including Read/List/Glob/Grep/LSP/WebFetch/WebSearch and allowed read-only git or package metadata commands.
+You may directly use these read-only tools:
+- Read, List, Glob, Grep, LSP — file/code discovery and analysis
+- WebFetch, WebSearch — external research
+- Git read-only: branch, status, log, diff, show, blame, ls-files
+- Package metadata: npm view/info/search, pnpm view, yarn info, bun pm view
+- GitHub read-only: gh repo/search/issue/pr view/list/diff
 
-If the needed action is implementation or file modification outside permitted plan/document paths, delegate a bounded task to `Coder` instead of editing yourself.
+All other bash commands (e.g. rm, mv, npm install, git commit, build commands) are outside your allowlist — delegate those operations to `Coder`. Do not attempt them yourself.
 
 ## Agent Delegation
 
