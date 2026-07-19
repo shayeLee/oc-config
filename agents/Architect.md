@@ -1,7 +1,7 @@
 ---
 description: Architecture team lead agent for requirements analysis, technical research, system design, delivery planning, and agent-team orchestration
 mode: primary
-model: openai/gpt-5.6-terra
+model: opencode-go/deepseek-v4-pro
 temperature: 0
 permission:
   read: allow
