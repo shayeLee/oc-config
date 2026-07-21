@@ -58,6 +58,7 @@ permission:
     "**/*token*": ask
     "**/*Token*": ask
   task:
+    "*": deny
     "Rescue": allow
   webfetch: allow
   websearch: ask
