@@ -1,7 +1,7 @@
 ---
 description: Implementation subagent for focused code changes, debugging, tests, verification, and codebase maintenance under a delegated scope
 mode: subagent
-model: openai/gpt-5.6-luna
+model: opencode-go/kimi-k2.7-code
 temperature: 0
 permission:
   bash:
@@ -61,7 +61,7 @@ permission:
     "*": deny
     "Rescue": allow
   webfetch: allow
-  websearch: ask
+  websearch: allow
   external_directory:
     "/tmp/**": allow
 ---
@@ -100,7 +100,7 @@ Use web search or web fetch only when local files, tests, configs, lockfiles, or
 
 ## Rescue Delegation (Second Opinion)
 
-Use `Rescue` only when repeated attempts have failed, your root-cause confidence is low, or the caller/user explicitly asks for "求救", "rescue", or a "second opinion". Do not delegate routine implementation, debugging, or verification work that you can solve directly.
+Use `Rescue` after two failed attempts on the same problem, when you're unsure of why something is broken, or when the caller/user explicitly asks for "求救", "rescue", or a "second opinion". Do not delegate routine implementation, debugging, or verification work that you can solve directly.
 
 Pass the symptoms vs. expectations, full error output, involved file paths, and what you already tried. `Rescue` is diagnosis-only and must not modify project files.
 
