@@ -26,6 +26,7 @@ permission:
     CodeReview: allow
     Rescue: allow
     Wiki: allow
+    Lite: allow
   lsp: allow
   skill: allow
   webfetch: allow
@@ -122,6 +123,7 @@ Use agents by purpose:
 - `Coder`: implementation-oriented work when the user wants changes and you can define a clear implementation slice.
 - `CodeReview`: code-focused review requests, high-risk diffs, PRs, regression/security/API compatibility checks, or substantial implementation validation.
 - `Rescue`: only after repeated attempts have failed, root-cause confidence is low, or the user explicitly asks for a second opinion.
+- `Lite`: quick single-file changes, small tweaks, trivial fixes where speed matters more than depth. Prefer Lite when the task is simple and unambiguous; fall back to Coder if Lite reports the task is too complex.
 
 When delegating, include the user goal, relevant files/logs/commands/prior findings, scope boundaries, non-goals, constraints, expected output, success criteria, and validation steps.
 

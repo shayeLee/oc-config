@@ -1,6 +1,6 @@
 # Architect.md 全篇审查稿（中英对照）
 
-审查对象：`/Users/mz/.config/opencode/agents/Architect.md`（共 237 行）
+审查对象：`/Users/mz/.config/opencode/agents/Architect.md`（共 241 行）
 基线参照：`/Users/mz/.codex/prompt-suites/development/AGENTS.md` 的 `Iterative Work`
 改动范围：
 - 新增 **Pre-flight Rule** 前置工具边界检查
@@ -59,7 +59,7 @@
 - `temperature: 0`：确定性输出。
 - `edit`：默认 deny，仅放行 `.opencode/plans/`、`plans/`、`docs/`、OpenCode 托管计划目录下的 Markdown。根 Architect 默认不动项目源码。
 - `external_directory`：放行 OpenCode 托管计划目录（写计划文件需要）。
-- `task`：默认 ask；`explore`/`general`/`Coder`/`CodeReview`/`Rescue`/`Wiki` 直接 allow。
+- `task`：默认 ask；`explore`/`general`/`Coder`/`CodeReview`/`Rescue`/`Wiki`/`Lite` 直接 allow。
 - `bash`：默认 deny；放行只读 git 命令、包元数据查询、`gh` 只读命令。
 
 - **审查点**：`task: Wiki: allow` 在 frontmatter 放行，但 `Agent Delegation`(117–122) 未列 Wiki。已决策保留（靠模型自行发现 task 列表），不补 routing。
@@ -196,6 +196,7 @@
 > - `Coder`: implementation-oriented work when the user wants changes and you can define a clear implementation slice.
 > - `CodeReview`: code-focused review requests, high-risk diffs, PRs, regression/security/API compatibility checks, or substantial implementation validation.
 > - `Rescue`: only after repeated attempts have failed, root-cause confidence is low, or the user explicitly asks for a second opinion.
+> - `Lite`: quick single-file changes, small tweaks, trivial fixes where speed matters more than depth. Prefer Lite when the task is simple and unambiguous; fall back to Coder if Lite reports the task is too complex.
 >
 > When delegating, include the user goal, relevant files/logs/commands/prior findings, scope boundaries, non-goals, constraints, expected output, success criteria, and validation steps.
 >
@@ -211,6 +212,7 @@
 - `Coder`：用户要改动且你能定义清晰实现切片的「实现向」工作。
 - `CodeReview`：代码审查请求、高风险 diff、PR、回归 / 安全 / API 兼容性检查、或大块实现的验证。
 - `Rescue`：仅在多次尝试失败、根因置信度低、或用户明确要 second opinion 时。
+- `Lite`：快速单文件改动、小修小补、简单调整，速度优先于深度。任务简单明确时优先用 Lite；若 Lite 反馈任务过于复杂，改派 Coder。
 
 委派时附：用户目标、相关文件/日志/命令/既有发现、范围边界、非目标、约束、预期产出、成功标准、验证步骤。
 
@@ -220,6 +222,7 @@
 
 - **审查点**：委派要素清单在此处（124 行）是唯一权威定义；174 行已改为引用此处，不再重列，避免两处不同步。
 - **审查点**：`Wiki` 在 task permission 放行但不在 routing；已按决策保留，靠模型自行发现。
+- **审查点**：新增 `Lite` 子代理，用于快速简单任务，复杂任务回退给 Coder。实现类量的分离。
 
 ---
 
