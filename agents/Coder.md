@@ -1,7 +1,7 @@
 ---
 description: Implementation subagent for focused code changes, debugging, tests, verification, and codebase maintenance under a delegated scope
 mode: subagent
-model: opencode-go/kimi-k2.7-code
+model: openai/gpt-5.6-luna
 temperature: 0
 permission:
   bash:
@@ -46,7 +46,7 @@ permission:
     "wget*": ask
   edit:
     "*": allow
-    "../*": deny
+    "../*": ask
     "/tmp/**": allow
     ".git/**": deny
     "**/.git/**": deny
