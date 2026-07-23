@@ -60,8 +60,8 @@ export async function load(dir: string) {
 
 | 文件 | agent.prompt |
 |---|---|
-| `agents/Architect.md` | 第 61–222 行（"You are the architecture lead..."） |
-| `agents/Coder.md` | 第 68–133 行（"You are a pragmatic implementation subagent..."） |
+| `agents/Architect.md` | 第 54–235 行（"You are the architecture lead..."） |
+| `agents/Coder.md` | 第 70–135 行（"You are a pragmatic implementation subagent..."） |
 | `agents/CodeReview.md` | 第 24–58 行（"You are in code review mode."） |
 | `agents/Rescue.md` | 第 21–46 行（"你是「求救」子代理..."） |
 
@@ -156,10 +156,10 @@ const system = [
 ```
 路由: gpt-5.6-terra → gpt.txt（但永远不会用到）
 
-system #1: Architect.md body（第 61–222 行）
+system #1: Architect.md body（第 54–236 行）
   - 角色定义、Core Responsibilities
   - Information Gathering、Tool Boundaries
-  - Agent Delegation（explore / general / Coder / CodeReview / Rescue）
+  - Agent Delegation（explore / general / Lite / Coder / CodeReview / Rescue）
   - Implementation Supervision
   - Iterative Work（模式闸门、Loop Specification、每轮协议、停止状态）
   - Output Style、Constraints
@@ -168,17 +168,17 @@ system #2:
   - 模型身份 + 环境
   - AGENTS.md (如果配置了 instructions)
   - Skills: figma-restore / dws
-  - Tools: Read / Glob / Grep / Bash (只读 git/npm/gh) / Task / LSP / WebFetch / WebSearch / Skill
+  - Tools: Read / Glob / Grep / Bash (ls + 只读 git/npm/gh) / Task / LSP / WebFetch / WebSearch / Skill
 
-→ 行为完全由自己的 222 行 prompt 控制
+→ 行为完全由自己的 183 行 prompt 控制
 ```
 
-### 3.2 Coder (`opencode-go/kimi-k2.7-code`)
+### 3.2 Coder (`openai/gpt-5.6-luna`)
 
 ```
-路由: kimi-k2.7-code → kimi.txt（但永远不会用到）
+路由: gpt-5.6-luna → gpt.txt（但永远不会用到）
 
-system #1: Coder.md body（第 68–133 行）
+system #1: Coder.md body（第 70–135 行）
   - Subagent Role、Execution Judgment
   - Core Behavior（inspect first, preserve existing style）
   - Minimal & Surgical Changes
@@ -187,7 +187,7 @@ system #1: Coder.md body（第 68–133 行）
 system #2:
   - 模型身份 + 环境
   - Skills: figma-restore / dws
-  - Tools: Read / Glob / Grep / Edit(*) / Bash(*) / Task / WebFetch
+  - Tools: Read / Glob / Grep / LSP / Edit(*) / Bash(*) / Task(Rescue) / WebFetch / WebSearch
 
 → 行为完全由自己的 66 行 prompt 控制
 ```
