@@ -60,6 +60,7 @@ permission:
   task:
     "*": deny
     "Rescue": allow
+  lsp: allow
   webfetch: allow
   websearch: allow
   external_directory:

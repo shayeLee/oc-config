@@ -59,6 +59,7 @@ permission:
     "**/*Token*": ask
   task:
     "*": deny
+  lsp: allow
   webfetch: allow
   websearch: allow
   external_directory:

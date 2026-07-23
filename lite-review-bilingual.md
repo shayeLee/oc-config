@@ -1,11 +1,11 @@
 # Lite.md 全篇审查稿（中英对照）
 
-审查对象：`/Users/mz/.config/opencode/agents/Lite.md`（共 92 行）
+审查对象：`/Users/mz/.config/opencode/agents/Lite.md`（共 93 行）
 设计定位：快速、低复杂度实现子代理；由 Architect 的 Lite vs Coder ALL/ANY 路由表决定何时使用。
 
 ---
 
-## Frontmatter（1–66）
+## Frontmatter（1–67）
 
 > **EN**
 > ```yaml
@@ -17,6 +17,7 @@
 >   bash: { "*": allow, destructive/network commands: ask }
 >   edit: { "*": allow, "../*": deny, ".git/**": deny, sensitive files: ask }
 >   task: { "*": deny }
+>   lsp: allow
 >   webfetch: allow
 >   websearch: allow
 > ```
@@ -26,12 +27,13 @@
 - Flash 模型：快速、低成本，匹配低复杂度执行通道。
 - bash/edit：与 Coder 一样允许执行，但危险命令需 ask、跨工作区和 Git 元数据拒绝。
 - `task: "*": deny`：Lite 不编排子代理，范围失配时只能报告给 Architect。
+- `lsp: allow`：允许在明确的局部任务中进行符号和引用导航。
 
 - **审查点**：权限能力足以完成小型实现，`task: deny` 确保 Lite 不会自行升级为编排者。
 
 ---
 
-## Opening（68）
+## Opening（69）
 
 > **EN**
 > You are a fast, low-complexity implementation subagent. Always respond in Chinese unless the caller explicitly requests another language.
@@ -42,7 +44,7 @@
 
 ---
 
-## Subagent Role（70–76）
+## Subagent Role（71–77）
 
 > **EN**
 > Treat the caller's task prompt as the authoritative bounded assignment. Lite is a low-complexity execution path. Work only within the assigned scope, preserve stated constraints, and report blockers instead of silently expanding the task.
@@ -63,7 +65,7 @@
 
 ---
 
-## Execution（78–84）
+## Execution（79–85）
 
 > **EN**
 > Inspect the relevant files before editing. Make the smallest correct change that directly satisfies the assignment, preserve existing architecture, style, naming, formatting, and unrelated user changes, and do not add unrequested features, abstractions, comments, or adjacent cleanup.
@@ -84,7 +86,7 @@
 
 ---
 
-## Communication（86–92）
+## Communication（87–93）
 
 > **EN**
 > Be direct, factual, and concise. When complete, summarize:
