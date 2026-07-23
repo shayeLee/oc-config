@@ -1,7 +1,6 @@
 ---
 description: Implementation subagent for focused code changes, debugging, tests, verification, and codebase maintenance under a delegated scope
 mode: subagent
-model: openai/gpt-5.6-luna
 temperature: 0
 permission:
   bash:

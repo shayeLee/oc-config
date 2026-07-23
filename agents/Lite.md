@@ -1,7 +1,6 @@
 ---
 description: Low-complexity execution channel for well-defined, localized, reversible changes with clear acceptance criteria
 mode: subagent
-model: opencode-go/deepseek-v4-flash
 temperature: 0
 permission:
   bash:

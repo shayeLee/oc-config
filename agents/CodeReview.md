@@ -1,7 +1,6 @@
 ---
 description: Read-only code review agent focused on bugs, regressions, security risks, API compatibility, and missing tests
 mode: subagent
-model: openai/gpt-5.6-sol
 temperature: 0
 permission:
   read: allow

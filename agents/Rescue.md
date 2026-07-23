@@ -1,7 +1,6 @@
 ---
 description: 多次尝试失败、根因信心不足或明确要求第二意见时使用的只读诊断子代理
 mode: subagent
-model: openai/gpt-5.6-sol
 temperature: 0
 permission:
   read: allow
