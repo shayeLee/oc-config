@@ -25,30 +25,26 @@ permission:
     "*": deny
     "ls": allow
     "ls *": allow
-    "git branch": allow
-    "git branch --list*": allow
-    "git branch -a*": allow
-    "git branch -vv*": allow
-    "git branch --show-current*": allow
-    "git status*": allow
-    "git log*": allow
-    "git diff*": allow
-    "git show*": allow
-    "git blame*": allow
-    "git ls-files*": allow
-    "npm view*": allow
-    "npm info*": allow
-    "npm search*": allow
-    "pnpm view*": allow
-    "yarn info*": allow
-    "bun pm view*": allow
-    "gh repo view*": allow
-    "gh search*": allow
-    "gh issue list*": allow
-    "gh issue view*": allow
-    "gh pr list*": allow
-    "gh pr view*": allow
-    "gh pr diff*": allow
+    "git branch *": allow
+    "git status *": allow
+    "git log *": allow
+    "git diff *": allow
+    "git show *": allow
+    "git blame *": allow
+    "git ls-files *": allow
+    "npm view *": allow
+    "npm info *": allow
+    "npm search *": allow
+    "pnpm view *": allow
+    "yarn info *": allow
+    "bun pm view *": allow
+    "gh repo view *": allow
+    "gh search *": allow
+    "gh issue list *": allow
+    "gh issue view *": allow
+    "gh pr list *": allow
+    "gh pr view *": allow
+    "gh pr diff *": allow
 ---
 
 You are a software architect.
