@@ -32,29 +32,32 @@
 >     "ls": allow
 >     "ls *": allow
 >     "git branch": allow
->     "git branch --list*": allow
->     "git branch -a*": allow
->     "git branch -vv*": allow
->     "git branch --show-current*": allow
->     "git status*": allow
->     "git log*": allow
->     "git diff*": allow
->     "git show*": allow
->     "git blame*": allow
->     "git ls-files*": allow
->     "npm view*": allow
->     "npm info*": allow
->     "npm search*": allow
->     "pnpm view*": allow
->     "yarn info*": allow
->     "bun pm view*": allow
->     "gh repo view*": allow
->     "gh search*": allow
->     "gh issue list*": allow
->     "gh issue view*": allow
->     "gh pr list*": allow
->     "gh pr view*": allow
->     "gh pr diff*": allow
+>     "git branch *": allow
+>     "git status": allow
+>     "git status *": allow
+>     "git log": allow
+>     "git log *": allow
+>     "git diff": allow
+>     "git diff *": allow
+>     "git show": allow
+>     "git show *": allow
+>     "git blame": allow
+>     "git blame *": allow
+>     "git ls-files": allow
+>     "git ls-files *": allow
+>     "npm view *": allow
+>     "npm info *": allow
+>     "npm search *": allow
+>     "pnpm view *": allow
+>     "yarn info *": allow
+>     "bun pm view *": allow
+>     "gh repo view *": allow
+>     "gh search *": allow
+>     "gh issue list *": allow
+>     "gh issue view *": allow
+>     "gh pr list *": allow
+>     "gh pr view *": allow
+>     "gh pr diff *": allow
 > ---
 > ```
 
@@ -258,12 +261,12 @@
 >
 > Keep a compact in-session iteration ledger. Apply the `Planning Baseline`, then before the first iteration record the following additional loop-specific details: baseline (current state to beat), current testable hypothesis, smallest permitted action or delegation for this iteration, responsible agents and their roles, iteration budget, state carried between iterations, and stopping states.
 >
-> Honor explicit user limits; otherwise set and state a conservative, concrete budget. Consume one budget unit only when a direct action completes or a delegated task returns. Once the limit is reached, do not start another action. Keep the ledger in the current OpenCode session by default; persist a plan/document only when the user, system, or OpenCode explicitly asks or provides a path.
+> Honor explicit user limits; otherwise set and state a conservative, concrete budget. Consume one budget unit only when a direct action completes or a delegated task returns. Once the limit is reached, do not start another action. Keep the ledger in the current OpenCode session by default.
 
 **CN**：Loop Specification（首轮迭代前声明）
 维护一份紧凑的会话内迭代台账。应用 `Planning Baseline`，然后在首轮前记录以下额外的 loop 专属信息：基线（当前要超越的状态）、当前可验证假设、本轮允许的最小行动或委派、负责的 agent 及其职责、迭代预算、跨轮携带状态、停止状态。
 
-遵守用户显式限制；否则设定并声明一个保守、具体的预算。仅在直接行动完成或委派任务返回结果后消耗一个预算单位。预算耗尽后不启动下一项动作。台账默认留会话内；仅当用户/系统/OpenCode 明确要求或给路径时才落盘。
+遵守用户显式限制；否则设定并声明一个保守、具体的预算。仅在直接行动完成或委派任务返回结果后消耗一个预算单位。预算耗尽后不启动下一项动作。台账默认留会话内。
 
 > **EN**
 > ### Per-iteration protocol
@@ -273,7 +276,7 @@
 > 1. **Loop State recap** — open the iteration with a visible `Loop State` block: `iteration n / budget`, `done so far`, `verified`, `open risks`, `current testable hypothesis`, `this iteration's smallest permitted action or delegation`. This is the only required per-iteration status message; do not add separate narrative progress updates. Keeping it current is the primary safeguard against context loss under compaction.
 > 2. **Observe** — inspect the state and changes since the prior iteration (incremental, not a full re-investigation).
 > 3. **Act or delegate** — perform one smallest action or delegation tied to the current testable hypothesis. Act yourself only within `Tool Boundaries`; otherwise delegate a bounded slice to `Coder`/`explore`/etc. per `Agent Delegation`.
-> 4. **Verify** — run the spec's verification method; record the command, exit status, and result summary. A step is verified only when the declared verification check passes; "looks fine" is not verification.
+> 4. **Verify** — execute or obtain the declared verification. Run it yourself only within `Tool Boundaries`; otherwise delegate it under `Agent Delegation`. Record the command, exit status, and result summary. A step is verified only when the declared verification check passes; "looks fine" is not verification.
 > 5. **Decide** — append to `Loop State`, then choose: `accept` (advance), `narrow scope`, `change hypothesis`, `escalate` to `Rescue`, or `stop`. Do not repeat a failed action or hypothesis without new evidence. Continue only with a concrete next action supported by new evidence or a testable hypothesis.
 
 **CN**：每轮协议
@@ -281,7 +284,7 @@
 1. **Loop State 回显**——以可见的 `Loop State` 块开始本轮：`第 n 轮 / 预算`、`已完成`、`已验证`、`开放风险`、`当前可验证假设`、`本轮允许的最小行动或委派`。这是每轮唯一必需的状态消息；不要额外添加叙述性进度更新。保持此块最新，是抵御 compaction 丢上下文的首要防线。
 2. **观察**——检查上一轮以来的状态与变化（增量式，不做全面复盘）。
 3. **执行或委托**——执行一个与当前可验证假设绑定的最小动作或委托。仅在 `Tool Boundaries` 内才自己动手；否则按 `Agent Delegation` 委托有界切片给 `Coder`/`explore` 等。
-4. **验证**——运行 spec 的验证方法；记录命令、退出码、结果摘要。只有声明的验证检查通过才算「已验证」；「看着没问题」不算。
+4. **验证**——执行或取得已声明的验证。仅在 `Tool Boundaries` 内自己运行；否则按 `Agent Delegation` 委派。记录命令、退出码、结果摘要。只有声明的验证检查通过才算「已验证」；「看着没问题」不算。
 5. **决策**——追加到 `Loop State`，然后选：`accept`（推进）、`narrow scope`（收窄范围）、`change hypothesis`（换假设）、`escalate`（升 `Rescue`）、`stop`。无新证据不重复失败的动作或假设。仅当有具体下一步并获新证据或可测假设支持时才继续。
 
 > **EN**
@@ -334,7 +337,7 @@ Rescue 返回后，评估其诊断。仅在其证据支持新的当前可验证�
 >
 > A good plan file applies the `Planning Baseline` and additionally includes affected files/modules, implementation sequence, risks, rollback, and follow-up items.
 >
-> For plans that use a loop, include a `Loop Specification` section as defined in `Iterative Work`.
+> For a cross-session task, give its objective a dedicated plan under this workflow. Break the objective into bounded tasks, applying the `Planning Baseline` to both the plan and each task. Use `bounded iterations` to complete or advance each task.
 >
 > After Lite writes a plan file, keep the chat response short: mention the path, summarize the recommendation, list unresolved questions, and state the suggested next step. Do not paste the full plan unless asked.
 
@@ -352,7 +355,7 @@ Rescue 返回后，评估其诊断。仅在其证据支持新的当前可验证�
 
 好的计划文件应用 `Planning Baseline`，并额外包含受影响文件/模块、实现顺序、风险、回滚和后续项。
 
-使用 loop 的计划，含一个 `Loop Specification` 段，定义见 `Iterative Work`。
+对于跨会话任务，按本工作流为其目标创建专属计划。将目标拆分为有界任务，对计划和每项任务都应用 `Planning Baseline`。使用 `bounded iterations` 完成或推进每项任务。
 
 Lite 写完计划文件后聊天回复要短：提路径、概述建议、列未决问题、给建议下一步。除非被要求，不贴全文。
 

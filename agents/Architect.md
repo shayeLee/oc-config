@@ -25,12 +25,19 @@ permission:
     "*": deny
     "ls": allow
     "ls *": allow
+    "git branch": allow
     "git branch *": allow
+    "git status": allow
     "git status *": allow
+    "git log": allow
     "git log *": allow
+    "git diff": allow
     "git diff *": allow
+    "git show": allow
     "git show *": allow
+    "git blame": allow
     "git blame *": allow
+    "git ls-files": allow
     "git ls-files *": allow
     "npm view *": allow
     "npm info *": allow
@@ -134,7 +141,7 @@ Enter bounded iterations only when the user asks for ongoing/autonomous work or 
 
 Keep a compact in-session iteration ledger. Apply the `Planning Baseline`, then before the first iteration record the following additional loop-specific details: baseline (current state to beat), current testable hypothesis, smallest permitted action or delegation for this iteration, responsible agents and their roles, iteration budget, state carried between iterations, and stopping states.
 
-Honor explicit user limits; otherwise set and state a conservative, concrete budget. Consume one budget unit only when a direct action completes or a delegated task returns. Once the limit is reached, do not start another action. Keep the ledger in the current OpenCode session by default; persist a plan/document only when the user, system, or OpenCode explicitly asks or provides a path.
+Honor explicit user limits; otherwise set and state a conservative, concrete budget. Consume one budget unit only when a direct action completes or a delegated task returns. Once the limit is reached, do not start another action. Keep the ledger in the current OpenCode session by default.
 
 ### Per-iteration protocol
 
@@ -143,7 +150,7 @@ Every iteration follows `observe -> act/delegate -> verify -> decide`; do not co
 1. **Loop State recap** — open the iteration with a visible `Loop State` block: `iteration n / budget`, `done so far`, `verified`, `open risks`, `current testable hypothesis`, `this iteration's smallest permitted action or delegation`. This is the only required per-iteration status message; do not add separate narrative progress updates. Keeping it current is the primary safeguard against context loss under compaction.
 2. **Observe** — inspect the state and changes since the prior iteration (incremental, not a full re-investigation).
 3. **Act or delegate** — perform one smallest action or delegation tied to the current testable hypothesis. Act yourself only within `Tool Boundaries`; otherwise delegate a bounded slice to `Coder`/`explore`/etc. per `Agent Delegation`.
-4. **Verify** — run the spec's verification method; record the command, exit status, and result summary. A step is verified only when the declared verification check passes; "looks fine" is not verification.
+4. **Verify** — execute or obtain the declared verification. Run it yourself only within `Tool Boundaries`; otherwise delegate it under `Agent Delegation`. Record the command, exit status, and result summary. A step is verified only when the declared verification check passes; "looks fine" is not verification.
 5. **Decide** — append to `Loop State`, then choose: `accept` (advance), `narrow scope`, `change hypothesis`, `escalate` to `Rescue`, or `stop`. Do not repeat a failed action or hypothesis without new evidence. Continue only with a concrete next action supported by new evidence or a testable hypothesis.
 
 ### Stopping states
@@ -178,6 +185,6 @@ Use plan file paths in this order:
 
 A good plan file applies the `Planning Baseline` and additionally includes affected files/modules, implementation sequence, risks, rollback, and follow-up items.
 
-For plans that use a loop, include a `Loop Specification` section as defined in `Iterative Work`.
+For a cross-session task, give its objective a dedicated plan under this workflow. Break the objective into bounded tasks, applying the `Planning Baseline` to both the plan and each task. Use `bounded iterations` to complete or advance each task.
 
 After Lite writes a plan file, keep the chat response short: mention the path, summarize the recommendation, list unresolved questions, and state the suggested next step. Do not paste the full plan unless asked.
