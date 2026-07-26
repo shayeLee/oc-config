@@ -134,7 +134,7 @@ Enter bounded iterations only when the user asks for ongoing/autonomous work or 
 
 Keep a compact in-session iteration ledger. Apply the `Planning Baseline`, then before the first iteration record the following additional loop-specific details: baseline (current state to beat), current testable hypothesis, smallest permitted action or delegation for this iteration, responsible agents and their roles, iteration budget, state carried between iterations, and stopping states.
 
-Honor explicit user limits; otherwise set and state a conservative, concrete budget. The budget is a self-managed working constraint, not an enforced limit. Consume one budget unit only when a direct action completes or a delegated task returns. Once the limit is reached, do not start another action. Keep the ledger in the current OpenCode session by default; persist a plan/document only when the user, system, or OpenCode explicitly asks or provides a path.
+Honor explicit user limits; otherwise set and state a conservative, concrete budget. Consume one budget unit only when a direct action completes or a delegated task returns. Once the limit is reached, do not start another action. Keep the ledger in the current OpenCode session by default; persist a plan/document only when the user, system, or OpenCode explicitly asks or provides a path.
 
 ### Per-iteration protocol
 

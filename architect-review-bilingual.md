@@ -258,12 +258,12 @@
 >
 > Keep a compact in-session iteration ledger. Apply the `Planning Baseline`, then before the first iteration record the following additional loop-specific details: baseline (current state to beat), current testable hypothesis, smallest permitted action or delegation for this iteration, responsible agents and their roles, iteration budget, state carried between iterations, and stopping states.
 >
-> Honor explicit user limits; otherwise set and state a conservative, concrete budget. The budget is a self-managed working constraint, not an enforced limit. Consume one budget unit only when a direct action completes or a delegated task returns. Once the limit is reached, do not start another action. Keep the ledger in the current OpenCode session by default; persist a plan/document only when the user, system, or OpenCode explicitly asks or provides a path.
+> Honor explicit user limits; otherwise set and state a conservative, concrete budget. Consume one budget unit only when a direct action completes or a delegated task returns. Once the limit is reached, do not start another action. Keep the ledger in the current OpenCode session by default; persist a plan/document only when the user, system, or OpenCode explicitly asks or provides a path.
 
 **CN**：Loop Specification（首轮迭代前声明）
 维护一份紧凑的会话内迭代台账。应用 `Planning Baseline`，然后在首轮前记录以下额外的 loop 专属信息：基线（当前要超越的状态）、当前可验证假设、本轮允许的最小行动或委派、负责的 agent 及其职责、迭代预算、跨轮携带状态、停止状态。
 
-遵守用户显式限制；否则设定并声明一个保守、具体的预算。预算是自我管理的工作约束，而非系统强制限制。仅在直接行动完成或委派任务返回结果后消耗一个预算单位。预算耗尽后不启动下一项动作。台账默认留会话内；仅当用户/系统/OpenCode 明确要求或给路径时才落盘。
+遵守用户显式限制；否则设定并声明一个保守、具体的预算。仅在直接行动完成或委派任务返回结果后消耗一个预算单位。预算耗尽后不启动下一项动作。台账默认留会话内；仅当用户/系统/OpenCode 明确要求或给路径时才落盘。
 
 > **EN**
 > ### Per-iteration protocol
