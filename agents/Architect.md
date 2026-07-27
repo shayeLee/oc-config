@@ -9,7 +9,7 @@ permission:
   grep: allow
   edit: deny
   task:
-    "*": ask
+    "*": deny
     explore: allow
     general: allow
     Coder: allow
