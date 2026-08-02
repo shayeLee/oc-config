@@ -7,7 +7,19 @@ permission:
   list: allow
   glob: allow
   grep: allow
-  edit: deny
+  edit:
+    "*": allow
+    "../*": ask
+    "/tmp/**": allow
+    ".git/**": deny
+    "**/.git/**": deny
+    "**/.env*": ask
+    "**/*secret*": ask
+    "**/*Secret*": ask
+    "**/*credential*": ask
+    "**/*Credential*": ask
+    "**/*token*": ask
+    "**/*Token*": ask
   task:
     "*": deny
     explore: allow
